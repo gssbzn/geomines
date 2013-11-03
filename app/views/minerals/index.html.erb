@@ -1,12 +1,14 @@
 <div class="panel panel-default">
   
-  <div class="panel-heading">Lista de Minerales</div>
+  <div class="panel-heading">
+    Lista de Minerales
+    <%= link_to ' ', new_mineral_path, class: "btn btn-default glyphicon glyphicon-plus", role:"button"%>
+  </div>
 
-  <table class ="table">
+  <table class ="table table-hover">
     <thead>
       <tr>
         <th>Nombre</th>
-        <th></th>
         <th></th>
         <th></th>
       </tr>
@@ -15,14 +17,16 @@
     <tbody>
       <% @minerals.each do |mineral| %>
         <tr>
-          <td><%= mineral.name %></td>
-          <td><%= link_to t(:show), mineral %></td>
-          <td><%= link_to t(:edit), edit_mineral_path(mineral) %></td>
-          <td><%= link_to t(:destroy), mineral, method: :delete, data: { confirm: '¿Estas Seguro?' } %></td>
+          <td><%= link_to mineral.name, mineral %></td>
+          <td>            
+            <%= link_to ' ', edit_mineral_path(mineral), class:"btn btn-default glyphicon glyphicon-edit", role:"button" %>
+          </td>
+          <td>
+            <%= link_to ' ', mineral, method: :delete, data: { confirm: '¿Estás seguro?' }, class:"btn btn-default glyphicon glyphicon-trash", role:"button" %>
+          </td>          
         </tr>
       <% end %>
     </tbody>
   </table>
   <br>
 </div>
-<%= link_to 'Nuevo Mineral', new_mineral_path, class: "btn btn-primary", role: "button" %>

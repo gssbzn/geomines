@@ -5,10 +5,10 @@
   </div>
 <% end %>
 
-<p>
-  <strong>Nombre:</strong>
+<h3>
   <%= @mine.name %>
-</p>
+  <%= link_to ' ', edit_mine_path(@mine), class:"btn btn-default glyphicon glyphicon-edit", role:"button" %>
+</h3>
 
 <p>
   <strong>Detalles:</strong>
@@ -16,16 +16,10 @@
 </p>
 
 <p>
-  <strong>Latitud:</strong>
-  <%= @mine.latitude %>
+  <strong>Ubicaci&oacute;n:</strong>
+  <%= @mine.latitude.to_s + ", " + @mine.longitude.to_s %>
 </p>
-
-<p>
-  <strong>Longitud:</strong>
-  <%= @mine.longitude %>
-</p>
-
-<%= link_to t(:edit), edit_mine_path(@mine) %> |
-<%= link_to t(:back), mines_path %>
 
 <%= render partial: "mine_resources/resources", locals: {mine_resources: @mine.mine_resources} %>
+
+<%= link_to t(:back), mines_path %>

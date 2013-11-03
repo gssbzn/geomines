@@ -1,14 +1,16 @@
 <div class="panel panel-default">
   
-  <div class="panel-heading">Lista de Minas</div>
+  <div class="panel-heading">
+    Lista de Minas
+    <%= link_to ' ', new_mine_path, class: "btn btn-default glyphicon glyphicon-plus", role:"button"%>
+  </div>
 
-  <table class ="table">
+  <table class ="table table-hover">
     <thead>
       <tr>
         <th>Nombre</th>
         <th>Detalles</th>
-        <th>Coordenadas</th>
-        <th></th>
+        <th>Coordenadas</th>        
         <th></th>
         <th></th>
       </tr>
@@ -17,13 +19,16 @@
     <tbody>
       <% @mines.each do |mine| %>
         <tr>
-          <td><%= mine.name %></td>
+          <td><%= link_to mine.name, mine %></td>
           <td><%= mine.details %></td>
           <% coordinates = mine.latitude.to_s + ", " + mine.longitude.to_s %>
-          <td><%= coordinates %></td>
-          <td><%= link_to t(:show), mine %></td>
-          <td><%= link_to t(:edit), edit_mine_path(mine) %></td>
-          <td><%= link_to t(:destroy), mine, method: :delete, data: { confirm: '¿Estás seguro?' } %></td>
+          <td><%= coordinates %></td>          
+          <td>            
+            <%= link_to ' ', edit_mine_path(mine), class:"btn btn-default glyphicon glyphicon-edit", role:"button" %>
+          </td>
+          <td>
+            <%= link_to ' ', mine, method: :delete, data: { confirm: '¿Estás seguro?' }, class:"btn btn-default glyphicon glyphicon-trash", role:"button" %>
+          </td>
         </tr>
       <% end %>
     </tbody>
@@ -31,8 +36,3 @@
   <br>
   
 </div>
-<%= link_to 'Nueva Mina', new_mine_path, class: "btn btn-primary", role: "button" %>
-
-
-
-
