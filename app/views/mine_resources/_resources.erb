@@ -1,0 +1,34 @@
+<div class="panel panel-default">
+  
+  <div class="panel-heading">Listando Recursos</div>
+
+  <table class ="table">
+    <thead>
+      <tr>
+        <th>Mineral</th>
+        <th>Condiciones</th>
+        <th>Capacidad Diaria</th>
+        <th>Capacidad Mensual</th>        
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% mine_resources.each do |resource| %>
+        <tr>
+          <td><%= resource.mineral.name %></td>
+          <td><%= resource.conditions %></td>
+          <td><%= resource.daily_capacity %></td>
+          <td><%= resource.monthly_capacity %></td>
+          <td><%= link_to t(:show), resource %></td>
+          <td><%= link_to t(:edit), edit_mine_resource_path(resource) %></td>
+          <td><%= link_to t(:destroy), resource, method: :delete, data: { confirm: '¿Estas Seguro?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+</div>
+<%= link_to 'Nuevo Recurso Minero', new_mine_mine_resource_path(@mine), class: "btn btn-primary", role: "button" %>

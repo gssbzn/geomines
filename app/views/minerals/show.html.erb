@@ -1,0 +1,16 @@
+<% if notice and notice.size != 0 %>
+  <div id="notice" class="alert alert-success alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <%= notice %>
+  </div>
+<% end %>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @mineral.name %>
+</p>
+
+<%= link_to t(:edite), edit_mineral_path(@mineral) %> |
+<%= link_to t(:back), minerals_path %>
+
+

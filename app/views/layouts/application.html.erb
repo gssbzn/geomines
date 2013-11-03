@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html land="es">
+<head>
+  <title>Minas</title>
+
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href='//api.tiles.mapbox.com/mapbox.js/v1.4.0/mapbox.css' rel='stylesheet' />
+  <!--[if lte IE 8]>
+    <link href='//api.tiles.mapbox.com/mapbox.js/v1.4.0/mapbox.ie.css' rel='stylesheet' />
+  <![endif]-->
+  <script src='//api.tiles.mapbox.com/mapbox.js/v1.4.0/mapbox.js'></script>
+  <style>
+    #map { position:relative; top:0; bottom:0; width:100%; height: 500px}
+  </style>
+</head>
+<body>
+  <header>
+    <%= render "shared/navigation" %>
+  </header>
+  <div id="main" class="container"
+    <div id="content" class="container">
+      <div class="row">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+  <footer>
+    
+  </footer>
+
+  
+</body>
+</html>

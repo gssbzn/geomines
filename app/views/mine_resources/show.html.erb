@@ -1,0 +1,30 @@
+<% if notice and notice.size != 0 %>
+  <div id="notice" class="alert alert-success alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <%= notice %>
+  </div>
+<% end %>
+
+<p>
+  <strong>Mineral:</strong>
+  <%= @mine_resource.mineral.name %>
+</p>
+
+<p>
+  <strong>Condiciones:</strong>
+  <%= @mine_resource.conditions %>
+</p>
+
+<p>
+  <strong>Capacidad Diaria:</strong>
+  <%= @mine_resource.daily_capacity %>
+</p>
+
+<p>
+  <strong>Capacidad Mensual:</strong>
+  <%= @mine_resource.monthly_capacity %>
+</p>
+
+<%= link_to t(:edit), edit_mine_resource_path(@mine_resource) %> |
+<%= link_to t(:back), @mine_resource.mine %>
+

@@ -1,0 +1,59 @@
+  <!-- Stack the columns on mobile by making one full-width and the other half-width -->
+  <div class="row">
+    <div class="col-xs-12 col-md-8">
+      
+    </div>
+    <div class="col-xs-6 col-md-4">
+      
+    </div>
+  </div>
+
+  <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+  <div class="row">
+    <div class="col-xs-2 col-md-2"></div>
+    <div class="col-xs-4 col-md-8">
+      <div id='map'></div>
+      <script type='text/javascript'>
+        var map = L.mapbox.map('map', 'gssbzn.g680no95');
+        var geoJson = [          
+          <% @mines.each do |mine| %>
+          {
+            type: 'Feature',
+            "geometry": { "type": "Point", "coordinates": [ <%= mine.longitude %>,<%= mine.latitude %>]},
+            "properties": {
+                "url": "<%= mine_path(mine) %>",                
+                "name": "<%= mine.name %>",
+                "details": "<%= mine.details %>"
+            }            
+          },          
+          <% end %>
+        ]
+
+        map.markerLayer.on('layeradd', function(e) {
+            var marker = e.layer,
+                feature = marker.feature;
+
+            // Create custom popup content
+            var popupContent =  '<a target="_blank" class="popup" href="' + feature.properties.url + '">' +                                    
+                                '   <h4>' + feature.properties.name + '</h4>' +
+                                '</a>' +
+                                '<div class="well">' + feature.properties.details + '</div>';
+
+            // http://leafletjs.com/reference.html#popup
+            marker.bindPopup(popupContent,{
+                closeButton: false,
+                minWidth: 320
+            });
+        });
+        // Add features to the map
+        map.markerLayer.setGeoJSON(geoJson);
+      </script></div>
+    <div class="col-xs-2 col-md-2"></div>
+  </div>
+
+  <!-- Columns are always 50% wide, on mobile and desktop -->
+  <div class="row">
+    <div class="col-xs-6"></div>
+    <div class="col-xs-6"></div>
+  </div>
+</div>

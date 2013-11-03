@@ -1,0 +1,37 @@
+es:
+  activerecord:
+    models:
+      mine: "Mina"
+      mine_resource: "Recurso minero"
+    attributes:
+      mine:
+        name: "Nombre"
+        details: "Detalles"
+        latitude: "Latitud"
+        longitude: "Longitud"
+      mine_resource:
+        mineral: "Mineral"
+        mine: "Mina"
+        conditions: "Condiciones"
+        daily_capacity: "Capacidad diaria"
+        monthly_capacity: "Capacidad mensual"
+    errors:
+      models:
+        mine:
+          attributes:
+            name:
+              blank: "no puede estar en blanco"
+            latitude: 
+              blank: "no puede estar en blanco"
+              not_a_number: "debe ser un numero"
+            longitude: 
+              blank: "no puede estar en blanco"
+              not_a_number: "debe ser un numero"
+        mine_resource:
+          attributes:            
+            daily_capacity: 
+              blank: "no puede estar en blanco"
+              not_a_number: "debe ser un numero"
+            monthly_capacity: 
+              blank: "no puede estar en blanco"
+              not_a_number: "debe ser un numero"

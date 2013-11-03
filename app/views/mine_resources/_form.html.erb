@@ -1,0 +1,33 @@
+<%= form_for([@mine,@mine_resource]) do |f| %>
+  <% if @mine_resource.errors.any? %>
+    <div class="alert alert-danger alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <strong><%= pluralize(@mine_resource.errors.count, "error") %></strong> impidieron guardar este recurso:
+      <ul>
+      <% @mine_resource.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label "Mineral" %><br>
+    <%= collection_select(:mine_resource, :mineral_id, Mineral.all.order(:name), :id, :name) %>
+  </div>
+  <div class="field">
+    <%= f.label "Condiciones" %><br>
+    <%= f.text_field :conditions %>
+  </div>
+  <div class="field">
+    <%= f.label "Capacidad diaria" %><br>
+    <%= f.text_field :daily_capacity %>
+  </div>
+  <div class="field">
+    <%= f.label "Capacidad Mensual" %><br>
+    <%= f.text_field :monthly_capacity %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

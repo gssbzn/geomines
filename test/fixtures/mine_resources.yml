@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  mineral_id: 
+  conditions: MyString
+  daily_capacity: 1.5
+  monthly_capacity: 1.5
+  mine_id: 
+
+two:
+  mineral_id: 
+  conditions: MyString
+  daily_capacity: 1.5
+  monthly_capacity: 1.5
+  mine_id: 

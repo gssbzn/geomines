@@ -1,0 +1,69 @@
+<%= form_for @mine, html: {role:"form"}  do |f| %>
+  <% if @mine.errors.any? %>
+    <div class="alert alert-danger alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <strong><%= pluralize(@mine.errors.count, "error") %></strong> impidieron guardar esta mina:
+      <ul>
+      <% @mine.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label "Nombre" %><br>
+    <%= f.text_field :name, class:"form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label "Detalles" %><br>
+    <%= f.text_area :details, class:"form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label "Latitud" %><br>
+    <%= f.text_field :latitude, class:"form-control", disabled: 'disabled' %>
+  </div>
+  <div class="form-group">
+    <%= f.label "Longitud" %><br>
+    <%= f.text_field :longitude, class:"form-control", disabled: 'disabled' %>
+  </div>
+  <div class="form-group">
+    <div class="col-xs-4 col-md-8">
+        <div id='map'></div>
+    </div>
+  </div>
+  <% if @mine.latitude.blank? %>
+    <% latitude = 10.498614480162155 %>
+  <% else %>
+    <% latitude = @mine.latitude %>
+  <% end %>
+  <% if @mine.longitude.blank? %>
+    <% longitude = -66.9287109375 %>
+  <% else %>
+    <% longitude = @mine.longitude %>
+  <% end %>
+
+  <script type='text/javascript'>
+
+  var map = L.mapbox.map('map', 'gssbzn.g680no95');
+
+  var marker = L.marker(new L.LatLng(<%= latitude %>, <%= longitude %>), {
+                  icon: L.mapbox.marker.icon({'marker-color': 'CC0033'}),
+                  draggable: true
+              });
+
+  marker.bindPopup('<%= @mine.name %>.');
+  marker.addTo(map);
+
+  marker.on('dragend', function(e){
+        var latlng = e.target._latlng
+        
+        console.log(latlng);
+        document.getElementById('mine_longitude').value = latlng.lng;
+        document.getElementById('mine_latitude').value = latlng.lat;
+  });
+  </script>
+  <div class="form-group">
+    <%= f.submit class:"btn btn-default"%>
+  </div>
+<% end %>

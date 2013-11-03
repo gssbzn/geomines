@@ -1,0 +1,21 @@
+<%= form_for(@mineral) do |f| %>
+  <% if @mineral.errors.any? %>
+    <div class="alert alert-danger alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <strong><%= pluralize(@mineral.errors.count, "error") %></strong> Impidieron guardar este mineral
+      <ul>
+      <% @mineral.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label "Nombre" %><br>
+    <%= f.text_field :name %>
+  </div>  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

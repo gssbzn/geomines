@@ -1,0 +1,28 @@
+<div class="panel panel-default">
+  
+  <div class="panel-heading">Lista de Minerales</div>
+
+  <table class ="table">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @minerals.each do |mineral| %>
+        <tr>
+          <td><%= mineral.name %></td>
+          <td><%= link_to t(:show), mineral %></td>
+          <td><%= link_to t(:edit), edit_mineral_path(mineral) %></td>
+          <td><%= link_to t(:destroy), mineral, method: :delete, data: { confirm: '¿Estas Seguro?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+</div>
+<%= link_to 'Nuevo Mineral', new_mineral_path, class: "btn btn-primary", role: "button" %>
