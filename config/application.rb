@@ -19,5 +19,9 @@ module Minas
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :es
+    
+    config.action_view.field_error_proc = Proc.new { |html_tag, instance| 
+      "<span class=\"has-error\">#{html_tag}</span>".html_safe
+    }
   end
 end

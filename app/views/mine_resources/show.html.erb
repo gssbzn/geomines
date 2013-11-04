@@ -5,10 +5,10 @@
   </div>
 <% end %>
 
-<p>
-  <strong>Mineral:</strong>
+<h3>
   <%= @mine_resource.mineral.name %>
-</p>
+  <%= link_to ' ', edit_mine_resource_path(@mine_resource), class:"btn btn-default glyphicon glyphicon-edit", role:"button" %>
+</h3>
 
 <p>
   <strong>Condiciones:</strong>
@@ -25,6 +25,6 @@
   <%= @mine_resource.monthly_capacity %>
 </p>
 
-<%= link_to t(:edit), edit_mine_resource_path(@mine_resource) %> |
+<%#= link_to t(:edit), edit_mine_resource_path(@mine_resource) %> 
 <%= link_to t(:back), @mine_resource.mine %>
 

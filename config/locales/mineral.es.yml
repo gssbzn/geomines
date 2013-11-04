@@ -11,4 +11,5 @@ es:
           attributes:
             name:
               taken: "ya existe un mineral con este valor"
+              blank: "no puede estar en blanco"
     

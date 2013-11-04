@@ -10,6 +10,7 @@ es:
         latitude: "Latitud"
         longitude: "Longitud"
       mine_resource:
+        mineral_id: "Mineral"
         mineral: "Mineral"
         mine: "Mina"
         conditions: "Condiciones"
