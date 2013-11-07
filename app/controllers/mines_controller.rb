@@ -1,10 +1,12 @@
+# @author Gustavo Bazan
+# Mines controller
 class MinesController < ApplicationController
   before_action :set_mine, only: [:show, :edit, :update, :destroy]
 
   # GET /mines
   # GET /mines.json
   def index
-    @mines = Mine.all
+    @mines = Mine.select(:id, :name, :details, :longitude, :latitude).order(:name)
   end
 
   # GET /mines/1

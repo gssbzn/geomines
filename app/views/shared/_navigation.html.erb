@@ -16,17 +16,11 @@
       <li <%= controller.controller_name == 'welcome' ? "class=active":"" %>>
         <%= link_to('Inicio', root_path) %>
       </li>
-      <li class="dropdown<%= controller.controller_name == 'mines' ? " active":"" %>">
-        <%= link_to 'Minas', mines_path, class:"dropdown-toggle" %>
-        <ul class="dropdown-menu">
-          <li><%= link_to 'Nueva', new_mine_path %></li>
-        </ul>
+      <li class="<%= controller.controller_name == 'mines' ? " active":"" %>">
+        <%= link_to 'Minas', mines_path, class:"dropdown-toggle" %>        
       </li>
-      <li class="dropdown<%= controller.controller_name == 'minerals' ? " active":"" %>">
-        <%= link_to('Minerales', minerals_path) %>
-        <ul class="dropdown-menu">
-          <li><%= link_to('Nuevo', new_mineral_path) %></li>
-        </ul>
+      <li class="<%= controller.controller_name == 'minerals' ? " active":"" %>">
+        <%= link_to('Minerales', minerals_path) %>        
       </li>
     </ul>
     <!-- 

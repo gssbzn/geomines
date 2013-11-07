@@ -1,10 +1,12 @@
+# @author Gustavo Bazan
+# Minerals controller
 class MineralsController < ApplicationController
   before_action :set_mineral, only: [:show, :edit, :update, :destroy]
 
   # GET /minerals
   # GET /minerals.json
   def index
-    @minerals = Mineral.all
+    @minerals = Mineral.select(:id, :name).order(:name)
   end
 
   # GET /minerals/1

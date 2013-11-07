@@ -6,10 +6,10 @@ GGMV is built with
 
 * ruby 2.0.0
 * rails 4.0
-* bootstrap
-* mapbox
+* [bootstrap](http://getbootstrap.com/)
+* [mapbox](https://www.mapbox.com/)
 
-##Installing and configuring OLKS
+##Installing and configuring GGMV
 
 Just run:
 

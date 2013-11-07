@@ -6,3 +6,5 @@
 
 # TECHNOLOGY COLOPHON
     rails 4.0
+    bootstrap 3
+    mapbox

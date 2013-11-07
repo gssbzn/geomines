@@ -1,23 +1,25 @@
+# @author Gustavo Bazan
+# MineResources controller
 class MineResourcesController < ApplicationController
   before_action :set_mine_resource, only: [:show, :edit, :update, :destroy]
 
-  # GET /mines/1
-  # GET /mines/1.json
+  # GET /mine_resources/1
+  # GET /mine_resources/1.json
   def show
   end
 
-  # GET /mines/:id/mine_resources/new
+  # GET /mines/:mine_id/mine_resources/new
   def new
     @mine_resource = MineResource.new
     @mine = Mine.find(params[:mine_id])
   end
 
-  # GET /mines/1/edit
+  # GET /mine_resources/1/edit
   def edit
   end
 
-  # POST /mines
-  # POST /mines.json
+  # POST /mine_resources
+  # POST /mine_resources.json
   def create
     @mine_resource = MineResource.new(mine_resource_params)
     @mine = Mine.find(params[:mine_id])
@@ -33,8 +35,8 @@ class MineResourcesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /mines/1
-  # PATCH/PUT /mines/1.json
+  # PATCH/PUT /mine_resources/1
+  # PATCH/PUT /mine_resources/1.json
   def update
     respond_to do |format|
       if @mine_resource.update(mine_resource_params)
@@ -47,8 +49,8 @@ class MineResourcesController < ApplicationController
     end
   end
 
-  # DELETE /mines/1
-  # DELETE /mines/1.json
+  # DELETE /mine_resources/1
+  # DELETE /mine_resources/1.json
   def destroy
     @mine = @mine_resource.mine
     @mine_resource.destroy
@@ -62,7 +64,7 @@ class MineResourcesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_mine_resource
       @mine_resource = MineResource.includes(:mine, :mineral).find(params[:id])
-      #@mine = MineResource.find(params[:mine_id])
+      # @mine = Mine.find(params[:mine_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -1,3 +1,5 @@
+# @author Gustavo Bazan
+# Model for managing mine-mineral ralation
 class MineResource < ActiveRecord::Base
   belongs_to :mineral
   belongs_to :mine
