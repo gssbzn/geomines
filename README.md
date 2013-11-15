@@ -1,5 +1,5 @@
 #Geomines
-GGMV in a web app made for registering te geografical location of venezuelans mines
+Geomines in a web app made for registering te geografical location of venezuelans mines
 
 ##Technology
 Geomines is built with
